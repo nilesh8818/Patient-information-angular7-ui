@@ -1,0 +1,28 @@
+.datatable{
+    float: left;
+    margin-top: 20px;
+}
+
+.form-control{
+    width: 350px;
+}
+
+.alert-danger {
+    width: 350px;
+    height: 30px;
+}
+
+div.alert.alert-danger > div{
+    font-size: 12px;
+    text-align: center;
+    margin-top: -6px;   
+}
+
+
+div.form-group > label > span{
+    color:red;
+}
+
+.table{
+    margin-top: 20px;
+}

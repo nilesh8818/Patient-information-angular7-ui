@@ -1,0 +1,43 @@
+<html>
+<header class="head">
+   <div class="col-sm-4 headtext ">
+        <img class="image" src="https://img.icons8.com/color/48/000000/patient-oxygen-mask.png">
+       <span>Patient Portal</span>
+   </div>
+</header>
+    
+  <body>
+     <nav class="main-menu">
+            <ul>
+               
+                <li class="has-subnav">
+                    <a >
+                        <i class="fa fa-plus fa-2x"></i>
+                        <span class="nav-text"  routerLink="/createpatient">
+                           Add New Patient
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                   <a>
+                        <i class="fa fa-table fa-2x"></i>
+                        <span class="nav-text" routerLink="/getpatient">
+                           Patient Data
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                    <a>
+                        <i class="fa fa-trash-o fa-2x"></i>
+                        <span class="nav-text" routerLink="/deletepatient">
+                            Patient Delete
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <router-outlet></router-outlet>
+  </body>
+ 
+ </html>

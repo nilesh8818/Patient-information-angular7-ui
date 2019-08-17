@@ -1,0 +1,22 @@
+form > div > input{
+     width: 350px;
+}
+
+div.col-sm-7 > form{
+    margin-top: 5px;
+}
+
+.alert-danger {
+    width: 350px;
+    height: 30px;
+}
+
+form > div.alert.alert-danger > div{
+    font-size: 12px;
+    text-align: center;
+    margin-top: -6px;
+}
+
+div > label > span{
+    color:red;
+}

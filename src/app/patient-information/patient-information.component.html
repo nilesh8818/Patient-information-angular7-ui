@@ -1,0 +1,99 @@
+<div class="row">
+
+  <div class="col-sm-3"></div>
+  <div class="col-sm-9 datatable">
+    <button class="btn btn-info mr-1" (click)="getAllPatient()">Get All Patient</button>
+    <button class="btn btn-info mr-1" (click)="getPatientByName()">Get Patient By Name</button>
+    <hr>
+
+    <div *ngIf=showSpinner>
+      <ngx-spinner bdOpacity=0.2 size="medium" type="ball-clip-rotate-multiple" [fullScreen]="true">
+      </ngx-spinner>
+    </div>
+
+    <div *ngIf="showDisplay===true">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>PatientId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Guid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pat of allPatient">
+            <td>{{pat.patientId}}</td>
+            <td>{{pat.firstName}}</td>
+            <td>{{pat.lastName}}</td>
+            <td>{{pat.city}}</td>
+            <td>{{pat.state}}</td>
+            <td>{{pat.guid}}</td>
+            <button type="button" class="btn btn-success" (click)="onSelectPatient(pat)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="deletePatient(pat)">Delete</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    <div *ngIf=showDisplayOne>
+
+
+      <form [formGroup]="angForm" novalidate>
+
+        <div class="form-group">
+          <label>FirstName<span>*</span></label>
+          <input class="form-control" formControlName="firstName" type="text" [(ngModel)]="firstName">
+        </div>
+        <div
+          *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['firstName'].errors.required">
+            First Name is required.
+          </div>
+        </div>
+
+
+
+        <button type="submit" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success"
+          (click)="getOnePatient()">
+          Get Patient
+        </button>
+      </form>
+
+    </div>
+
+
+    <div *ngIf=showOnePatient>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>PatientId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Guid</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{onePatient.patientId}}</td>
+            <td>{{onePatient.firstName}}</td>
+            <td>{{onePatient.lastName}}</td>
+            <td>{{onePatient.city}}</td>
+            <td>{{onePatient.state}}</td>
+            <td>{{onePatient.guid}}</td>
+            <button type="button" class="btn btn-success" (click)="onSelectPatient(onePatient)">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="deletePatient(onePatient)">Delete</button>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
