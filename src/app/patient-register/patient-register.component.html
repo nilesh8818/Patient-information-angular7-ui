@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-sm-5"></div>
+    <div class="col-sm-7">
+        <form [formGroup]="angForm" novalidate>
+            
+                <div class="form-group">
+                        <label>FirstName<span>*</span></label>
+                        <input class="form-control" formControlName="firstName" type="text" [(ngModel)]="firstName">
+                    </div>
+                    <div *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['firstName'].errors.required">
+                          First Name is required.
+                        </div>
+                        <div *ngIf="angForm.controls['firstName'].errors.pattern">
+                            First name is required only alphhabets
+                         </div>
+                    </div>
+        
+        
+                     <div class="form-group">
+                        <label>LastName<span>*</span></label>
+                        <input class="form-control" formControlName="lastName" type="text" [(ngModel)]="lastName">
+                    </div>
+                    <div *ngIf="angForm.controls['lastName'].invalid && (angForm.controls['lastName'].dirty || angForm.controls['lastName'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['lastName'].errors.required">
+                        Last Name is required.
+                        </div>
+                        <div *ngIf="angForm.controls['lastName'].errors.pattern">
+                            Last name is required only alphhabets
+                         </div>
+                    </div>
+
+
+               <div class="form-group">
+                    <label>State<span>*</span></label>
+                    <input class="form-control" formControlName="state" type="text" [(ngModel)]="state">
+                </div>
+                <div *ngIf="angForm.controls['state'].invalid && (angForm.controls['state'].dirty || angForm.controls['state'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['state'].errors.required">
+                      State is required.
+                    </div>
+                    <div *ngIf="angForm.controls['state'].errors.pattern">
+                       State is required only alphhabets
+                     </div>
+                </div>
+
+          
+               
+
+                <div class="form-group">
+                        <label>City<span>*</span>   </label>
+                        <input class="form-control" formControlName="city" type="text" [(ngModel)]="city">
+                    </div>
+                    <div *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)" class="alert alert-danger">
+                        <div *ngIf="angForm.controls['city'].errors.required">
+                          City is required.
+                        </div>
+                        <div *ngIf="angForm.controls['city'].errors.pattern">
+                            City is required only alphhabets
+                         </div>
+                    </div>
+
+
+            <button type="submit"
+                [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success" (click)="registerUser()">
+                Save
+            </button>
+      </form>
+    </div>
+</div>
+

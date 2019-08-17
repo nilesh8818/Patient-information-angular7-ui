@@ -1,0 +1,26 @@
+<div class="row">
+        <div class="col-sm-5"></div>
+        <div class="col-sm-7">
+            <form [formGroup]="angForm" novalidate> 
+                
+                    <div class="form-group">
+                            <label>PatientId<span>*</span></label>
+                            <input class="form-control" formControlName="patientId" type="text" [(ngModel)]="patientId">
+                        </div>
+                        <div *ngIf="angForm.controls['patientId'].invalid && (angForm.controls['patientId'].dirty || angForm.controls['patientId'].touched)" class="alert alert-danger">
+                            <div *ngIf="angForm.controls['patientId'].errors.required">
+                              PatientId is required.
+                            </div>
+                        </div>
+                
+                   
+    
+                <button type="submit"
+                    [disabled]="angForm.pristine || angForm.invalid" class="btn btn-success" (click)="deletePatient()">
+                    Delete Patient
+                </button>
+          </form>
+        </div>
+    </div>
+    
+    
